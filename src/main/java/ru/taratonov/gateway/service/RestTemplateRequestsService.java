@@ -82,7 +82,7 @@ public class RestTemplateRequestsService {
     public void signDocument(Long id, Integer sesCode) {
         log.debug("Request to sign documents with code to deal with id={} and ses-code={}", id, sesCode);
         ResponseEntity<Void> responseEntity =
-                restTemplate.postForEntity(PATH_TO_DEAL_SIGN_DOCUMENTS_WITH_CODE.replace("{id}", id.toString()), sesCode, Void.class,id);
+                restTemplate.postForEntity(PATH_TO_DEAL_SIGN_DOCUMENTS_WITH_CODE.replace("{id}", id.toString()), sesCode, Void.class, id);
     }
 
     public void denyApplication(Long id) {
