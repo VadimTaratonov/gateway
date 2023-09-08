@@ -27,4 +27,3 @@ jobs:
           -Dsonar.login=$SONAR_TOKEN 
           -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml
           -Dsonar.sources=src/main/java/ru/taratonov/gateway/service
-          -Dsonar.tests=src/test/java/ru/taratonov/gateway/service
