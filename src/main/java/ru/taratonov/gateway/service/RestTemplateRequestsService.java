@@ -104,7 +104,7 @@ public class RestTemplateRequestsService {
     }
 
     public void saveAuditAction(AuditAction auditAction){
-        log.info("Save new audit action with id={}", auditAction.getUuid());
+        log.info("Save new audit action");
         ResponseEntity<Void> responseEntity =
                 restTemplate.postForEntity(PATH_TO_AUDIT_SAVE,auditAction, Void.class);
     }
