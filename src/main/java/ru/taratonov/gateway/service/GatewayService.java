@@ -3,11 +3,15 @@ package ru.taratonov.gateway.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.taratonov.gateway.dto.AuditAction;
 import ru.taratonov.gateway.dto.FinishRegistrationRequestDTO;
 import ru.taratonov.gateway.dto.LoanApplicationRequestDTO;
 import ru.taratonov.gateway.dto.LoanOfferDTO;
+import ru.taratonov.gateway.enums.AuditActionServiceType;
+import ru.taratonov.gateway.enums.AuditActionType;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -50,5 +54,25 @@ public class GatewayService {
     public void signDocument(Long id, Integer sesCode) {
         log.info("Sign documents with code to application with id={} and ses-code={}", id, sesCode);
         restTemplateRequestsService.signDocument(id, sesCode);
+    }
+
+    public void saveAuditAction(AuditAction auditAction){
+        restTemplateRequestsService.saveAuditAction(auditAction);
+    }
+
+    public AuditAction getAuditActionByUuid(UUID uuid){
+        return restTemplateRequestsService.getAuditActionByUuid(uuid);
+    }
+
+    public List<AuditAction> getAllAuditActionsByType(AuditActionType type){
+        return restTemplateRequestsService.getAllAuditActionsByType(type);
+    }
+
+    public List<AuditAction> getAllAuditActionsByService(AuditActionServiceType serviceType){
+        return restTemplateRequestsService.getAllAuditActionsByService(serviceType);
+    }
+
+    public List<AuditAction> getAllAuditActions(){
+        return restTemplateRequestsService.getAllAuditActions();
     }
 }
